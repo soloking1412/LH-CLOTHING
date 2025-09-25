@@ -1,0 +1,373 @@
+.faq-page {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding-top: 80px; /* Account for fixed header */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* FAQ Page Header */
+.faq-page-header {
+  text-align: center;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #111 0%, #000 100%);
+  margin-bottom: 60px;
+  border-radius: 20px;
+  border: 2px solid #333;
+}
+
+.faq-page .faq-page-header h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #fff !important;
+}
+
+.faq-page-header p {
+  font-size: 1.3rem;
+  color: #ccc;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* FAQ Accordion */
+.faq-accordion {
+  margin-bottom: 80px;
+}
+
+.faq-item {
+  background: #000;
+  border: 2px solid #333;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: #555;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 25px 30px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-question.open {
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #333;
+}
+
+.faq-question span {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.chevron {
+  font-size: 1.2rem;
+  color: #ccc;
+  transition: transform 0.3s ease;
+}
+
+.faq-question.open .chevron {
+  transform: rotate(180deg);
+  color: #fff;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 500px;
+}
+
+.answer-content {
+  padding: 0 30px 25px 30px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.answer-content p {
+  margin: 0 0 15px 0;
+}
+
+.answer-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Help Section */
+.help-section {
+  background: linear-gradient(135deg, #111 0%, #000 100%);
+  border-radius: 20px;
+  border: 2px solid #333;
+  padding: 60px 40px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.help-content h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.help-content > p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin: 0 0 50px 0;
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+  line-height: 1.6;
+}
+
+.help-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.help-option {
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 30px 20px;
+  transition: all 0.3s ease;
+}
+
+.help-option:hover {
+  border-color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+}
+
+.help-option h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.help-option p {
+  color: #ccc;
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+}
+
+.help-option p:last-child {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Size Reminder */
+.size-reminder {
+  background: linear-gradient(135deg, #111 0%, #000 100%);
+  border-radius: 20px;
+  border: 2px solid #333;
+  padding: 40px;
+  margin-bottom: 60px;
+}
+
+.reminder-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reminder-content > p {
+  color: #ccc;
+  text-align: center;
+  margin: 0 0 30px 0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+.size-tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tip {
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  color: #ccc;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.tip:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tip strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Floating WhatsApp Support */
+.whatsapp-support {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #25d366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.whatsapp-support:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq-page-header {
+    padding: 40px 20px;
+    margin-bottom: 40px;
+  }
+  
+  .faq-page .faq-page-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .faq-page-header p {
+    font-size: 1.1rem;
+  }
+  
+  .faq-question {
+    padding: 20px 25px;
+    font-size: 1rem;
+  }
+  
+  .answer-content {
+    padding: 0 25px 20px 25px;
+  }
+  
+  .help-section {
+    padding: 40px 25px;
+    margin-bottom: 40px;
+  }
+  
+  .help-content h2 {
+    font-size: 2rem;
+  }
+  
+  .help-content > p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+  
+  .help-options {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .size-reminder {
+    padding: 30px 25px;
+  }
+  
+  .reminder-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .size-tips {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .faq-page .faq-page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .faq-page-header p {
+    font-size: 1rem;
+  }
+  
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .answer-content {
+    padding: 0 20px 18px 20px;
+  }
+  
+  .help-section {
+    padding: 30px 20px;
+  }
+  
+  .help-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .size-reminder {
+    padding: 25px 20px;
+  }
+  
+  .whatsapp-support {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
