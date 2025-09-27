@@ -91,11 +91,6 @@ const Support = () => {
         <div className={`support-page-header ${animatedSections.includes(0) ? 'animate-in' : ''}`}>
           <h1>Support Center</h1>
           <p>We're here to help you with anything you need</p>
-          <div className="header-decoration">
-            <div className="floating-icon">💬</div>
-            <div className="floating-icon">🤖</div>
-            <div className="floating-icon">📞</div>
-          </div>
         </div>
 
         {/* Main Support Section */}
@@ -130,7 +125,7 @@ const Support = () => {
                 <h3>Email Support</h3>
                 <p>Detailed inquiries & documentation</p>
                 <a 
-                  href="mailto:support@lhclothing.com" 
+                  href="mailto:lhstylehub@gmail.com" 
                   className="contact-button"
                 >
                   Send Email
@@ -186,7 +181,7 @@ const Support = () => {
                 <FaEnvelope className="info-icon" />
                 <div className="info-content">
                   <h4>Email</h4>
-                  <p>support@lhclothing.com</p>
+                  <p>lhstylehub@gmail.com</p>
                 </div>
               </div>
               
@@ -194,7 +189,7 @@ const Support = () => {
                 <FaMapMarkerAlt className="info-icon" />
                 <div className="info-content">
                   <h4>Address</h4>
-                  <p>Peelamedu, Coimbatore</p>
+                  <p>Hopes, Coimbatore</p>
                 </div>
               </div>
               

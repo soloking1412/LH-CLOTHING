@@ -134,7 +134,7 @@ const ReturnPolicy = () => {
               please don't hesitate to reach out to our support team.
             </p>
             <div className="contact-info">
-              <p><strong>Email:</strong> support@lhclothing.com</p>
+              <p><strong>Email:</strong> lhstylehub@gmail.com</p>
               <p><strong>Response Time:</strong> Within 24 hours</p>
             </div>
             <div className="contact-decoration">

@@ -207,6 +207,33 @@
   padding: 20px 0;
 }
 
+/* Live Viewers */
+.live-viewers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid #ff4444;
+}
+
+.viewer-icon {
+  font-size: 16px;
+}
+
+.viewer-count {
+  font-weight: 700;
+  color: #ff4444;
+  font-size: 16px;
+}
+
+.viewer-text {
+  font-size: 14px;
+  color: #666666;
+}
+
 .product-title {
   font-size: 28px;
   font-weight: 600;

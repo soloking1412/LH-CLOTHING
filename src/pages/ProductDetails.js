@@ -31,8 +31,7 @@ const ProductDetails = ({ addToCart }) => {
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       colors: [
         { name: 'Black', value: 'black', available: true },
-        { name: 'White', value: 'white', available: true },
-        { name: 'Green', value: 'green', available: true }
+        { name: 'White', value: 'white', available: true }
       ],
       fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
       fit: 'Relaxed Oversized Fit for streetwear styling',
@@ -113,7 +112,7 @@ const ProductDetails = ({ addToCart }) => {
     3: {
       id: 3,
       name: 'OVERSIZED XO HORIZON TEE',
-      subtitle: 'THE WEEKND COLLECTION',
+      subtitle: 'THE WEEKND',
       price: 749,
       originalPrice: 999,
       images: [
@@ -289,6 +288,13 @@ const ProductDetails = ({ addToCart }) => {
                 <span className="rating-text">
                   {averageRating.toFixed(1)} ({product.reviews.length} reviews)
                 </span>
+              </div>
+
+              {/* Live Viewers */}
+              <div className="live-viewers">
+                <span className="viewer-icon">👁</span>
+                <span className="viewer-count">{Math.floor(Math.random() * 13) + 9}</span>
+                <span className="viewer-text">People are viewing this right now</span>
               </div>
 
               {/* Price */}

@@ -28,7 +28,7 @@ const Footer = () => {
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FaFacebook />
               </a>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <a href="https://wa.me/919080041049" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <FaWhatsapp />
               </a>
             </div>
@@ -66,11 +66,11 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <FaEnvelope />
-                <span>support@lhclothing.com</span>
+                <span>lhstylehub@gmail.com</span>
               </div>
               <div className="contact-item">
                 <FaMapMarkerAlt />
-                <span>Peelamedu, Coimbatore</span>
+                <span>Hopes, Coimbatore</span>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@ const Footer = () => {
             <p>&copy; 2024 LH STYLEHUB. All rights reserved.</p>
             <div className="footer-bottom-links">
               <Link to="/privacy">Privacy Policy</Link>
-              <Link to="/terms">Terms of Service</Link>
+              <Link to="/terms">Terms and Conditions</Link>
             </div>
           </div>
         </div>

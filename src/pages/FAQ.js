@@ -108,7 +108,7 @@ const FAQ = () => {
             <div className="help-options">
               <div className="help-option">
                 <h3>Email Support</h3>
-                <p>support@lhclothing.com</p>
+                <p>lhstylehub@gmail.com</p>
                 <p>We'll get back to you within 24 hours</p>
               </div>
               
@@ -154,7 +154,7 @@ const FAQ = () => {
       </div>
 
       {/* Floating WhatsApp Support Button */}
-      <a href="https://wa.me/919876543210" className="whatsapp-support" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/919080041049" className="whatsapp-support" target="_blank" rel="noopener noreferrer">
         <FaWhatsapp />
       </a>
     </div>

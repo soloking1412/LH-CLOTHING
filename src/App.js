@@ -13,6 +13,7 @@ import ReturnPolicy from './pages/ReturnPolicy';
 import Support from './pages/Support';
 import Profile from './pages/Profile';
 import Checkout from './pages/Checkout';
+import TermsConditions from './pages/TermsConditions';
 import CartSidebar from './components/CartSidebar';
 import './App.css';
 
@@ -107,6 +108,7 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/return-policy" element={<ReturnPolicy />} />
                 <Route path="/support" element={<Support />} />
+                <Route path="/terms" element={<TermsConditions />} />
             <Route path="/story" element={<div className="page-placeholder">Our Story Page</div>} />
             <Route path="/cart" element={<div className="page-placeholder">Cart Page</div>} />
             <Route path="/tracking" element={<div className="page-placeholder">Order Tracking Page</div>} />
