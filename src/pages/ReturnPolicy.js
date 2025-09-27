@@ -25,11 +25,6 @@ const ReturnPolicy = () => {
         <div className={`return-policy-page-header ${animatedSections.includes(0) ? 'animate-in' : ''}`}>
           <h1>Return Policy</h1>
           <p>Our commitment to quality and your satisfaction</p>
-          <div className="header-decoration">
-            <div className="floating-icon">❤️</div>
-            <div className="floating-icon">🛡️</div>
-            <div className="floating-icon">✨</div>
-          </div>
         </div>
 
         {/* Main Policy Section */}
@@ -42,11 +37,6 @@ const ReturnPolicy = () => {
             <p className="hero-text">
               Once they're yours, they stay yours—no returns, no take-backs. Just endless vibes.
             </p>
-            <div className="hero-decoration">
-              <div className="sparkle sparkle-1">✨</div>
-              <div className="sparkle sparkle-2">✨</div>
-              <div className="sparkle sparkle-3">✨</div>
-            </div>
           </div>
 
           <div className="policy-content">
@@ -60,9 +50,6 @@ const ReturnPolicy = () => {
                 we don't accept returns or exchanges. Every tee is crafted with love and attention to detail, 
                 ensuring you get a premium product that's worth keeping forever.
               </p>
-              <div className="section-decoration">
-                <div className="pulse-dot"></div>
-              </div>
             </div>
 
             <div className={`policy-section ${animatedSections.includes(2) ? 'animate-in' : ''}`}>
@@ -75,9 +62,6 @@ const ReturnPolicy = () => {
                 picking the right size is crucial. Our oversized fit is designed to look great on everyone, 
                 but we want you to be completely satisfied with your choice.
               </p>
-              <div className="section-decoration">
-                <div className="pulse-dot"></div>
-              </div>
             </div>
 
             <div className={`policy-section ${animatedSections.includes(2) ? 'animate-in' : ''}`}>
@@ -90,9 +74,6 @@ const ReturnPolicy = () => {
                 a defective item (printing issues, fabric defects, etc.), please contact our support team 
                 within 7 days of receiving your order for assistance.
               </p>
-              <div className="section-decoration">
-                <div className="pulse-dot"></div>
-              </div>
             </div>
           </div>
 
@@ -136,11 +117,6 @@ const ReturnPolicy = () => {
             <div className="contact-info">
               <p><strong>Email:</strong> lhstylehub@gmail.com</p>
               <p><strong>Response Time:</strong> Within 24 hours</p>
-            </div>
-            <div className="contact-decoration">
-              <div className="bouncing-arrow">
-                <FaArrowRight />
-              </div>
             </div>
           </div>
         </div>

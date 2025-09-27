@@ -114,7 +114,7 @@ const FAQ = () => {
               
               <div className="help-option">
                 <h3>WhatsApp Support</h3>
-                <p>+91 98765 43210</p>
+                <p>+919080041049</p>
                 <p>Quick responses during business hours</p>
               </div>
               
