@@ -7,11 +7,11 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      name: 'OVERSIZED STARBOY TEE',
-      subtitle: 'THE WEEKEND',
+      name: 'OVERSIZED KENDRICK TEE',
+      subtitle: 'THE CULTURE GLITCH',
       price: 749,
       originalPrice: 1049,
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/images/products/K-1.jpg',
       category: 'THE CULTURE GLITCH'
     },
     {
@@ -20,73 +20,60 @@ const Products = () => {
       subtitle: 'TRAVIS SCOTT',
       price: 749,
       originalPrice: 1049,
-      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/images/products/T-1.jpg',
       category: 'TRAVIS SCOTT COLLECTION'
     },
     {
       id: 3,
-      name: 'OVERSIZED STAY WEIRD TEE',
-      subtitle: 'MR BEAN',
+      name: 'OVERSIZED WEEKND TEE',
+      subtitle: 'THE WEEKND COLLECTION',
       price: 749,
       originalPrice: 1049,
-      image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      category: 'MR BEAN EDITION'
+      image: '/images/products/W-1.jpg',
+      category: 'THE WEEKND COLLECTION'
     },
-    {
-      id: 4,
-      name: 'OVERSIZED RESPECT+ TEE',
-      subtitle: 'GRAND THEFT AUTO',
-      price: 749,
-      originalPrice: 1049,
-      image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      category: 'GTA COLLECTION'
-    }
   ];
 
   return (
     <div className="products-page">
       <div className="container">
         {/* Page Header */}
-        <div className="products-page-header">
-          <h1>OVERSIZED T SHIRT : (THE CULTURE GLITCH)</h1>
-          <p>Premium streetwear collection featuring oversized fits and high-quality DTF prints</p>
+        <div className="page-header">
+          <h1>T-Shirts</h1>
         </div>
 
-        {/* Products Grid - 2x2 Layout */}
-        <div className="products-grid-2x2">
+        {/* Products Grid */}
+        <div className="products-grid">
           {products.map((product) => (
-            <div key={product.id} className="product-card-2x2">
-              <div className="product-image-container">
-                <img src={product.image} alt={product.name} className="product-image" />
+            <div key={product.id} className="product-card">
+              <div className="product-image">
+                <img src={product.image} alt={product.name} />
                 <div className="product-overlay">
-                  <div className="overlay-buttons">
-                    <Link to={`/product/${product.id}`} className="view-product-btn">
-                      View Full Product
-                    </Link>
-                    <button className="quick-add-btn">
-                      Quick Add to Cart
-                    </button>
-                  </div>
+                  <Link to={`/product/${product.id}`} className="view-btn">
+                    View Product
+                  </Link>
                 </div>
               </div>
               
-              <div className="product-info-2x2">
-                <div className="product-category">{product.category}</div>
+              <div className="product-info">
                 <h3 className="product-name">{product.name}</h3>
                 <p className="product-subtitle">{product.subtitle}</p>
                 
-                <div className="product-price-section">
+                <div className="product-price">
                   <span className="current-price">₹{product.price}</span>
                   <span className="original-price">₹{product.originalPrice}</span>
-                  <span className="discount-badge">
+                  <span className="discount">
                     {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
                   </span>
                 </div>
 
-                <div className="product-features">
-                  <span className="feature">220 GSM Cotton</span>
-                  <span className="feature">Oversized Fit</span>
-                  <span className="feature">DTF Print</span>
+                <div className="product-actions">
+                  <Link to={`/product/${product.id}`} className="add-to-cart">
+                    Add to Cart
+                  </Link>
+                  <button className="buy-now">
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>

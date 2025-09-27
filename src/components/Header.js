@@ -1,95 +1,79 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaShoppingCart, FaUser, FaTimes, FaSignOutAlt } from 'react-icons/fa';
+import { FaBars, FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 import { useAuth } from '../contexts/AuthContext';
 import './Header.css';
 
 const Header = ({ cartCount, onLoginClick, onCartClick }) => {
-  const { currentUser, userProfile, logout } = useAuth();
+  const { currentUser, userProfile } = useAuth();
   const isLoggedIn = !!currentUser;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const menuItems = [
-    { name: 'OVERSIZED T SHIRT :(THE CULTURE GLITCH)', path: '/products' },
-    { name: 'EXCHANGE/RETURN POLICY', path: '/return-policy' },
-    { name: 'SUPPORT : CONTACT US - MAIL AND WHATSAPP+AI CHATBOX', path: '/support' },
-    { name: 'FAQ : FAQ\'S', path: '/faq' },
-    { name: 'Behind LH- STORY', path: '/story' }
-  ];
 
   return (
     <header className="header">
       <div className="header-container">
-        {/* Left - Menu Button */}
-        <div className="header-left">
-          <button 
-            className="menu-button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <FaBars />
-          </button>
-        </div>
+        {/* Logo */}
+        <Link to="/" className="logo">
+          <span className="logo-text">LH</span>
+          <span className="logo-subtitle">CLOTHING</span>
+        </Link>
 
-        {/* Center - Logo */}
-        <div className="header-center">
-          <Link to="/" className="logo">
-            <span className="logo-text">LH</span>
-            <span className="logo-subtitle">CLOTHING</span>
-          </Link>
-        </div>
+        {/* Navigation */}
+        <nav className="nav">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/products" className="nav-link">T-Shirts</Link>
+          <Link to="/polo" className="nav-link">Polo</Link>
+          <Link to="/support" className="nav-link">Contact</Link>
+        </nav>
 
-        {/* Right - Cart, Profile */}
+        {/* Right Side */}
         <div className="header-right">
+          {/* Search */}
+          <div className="search">
+            <FaSearch className="search-icon" />
+            <input type="text" placeholder="Search" className="search-input" />
+          </div>
 
           {/* Cart */}
-          <button 
-            className="cart-icon"
-            onClick={onCartClick}
-          >
+          <button className="cart-btn" onClick={onCartClick}>
             <FaShoppingCart />
             {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
           </button>
 
-          {/* Profile/Login */}
-          <div className="profile-section">
+          {/* Profile */}
+          <div className="profile">
             {isLoggedIn ? (
-              <Link to="/profile" className="user-profile">
+              <Link to="/profile" className="profile-link">
                 <FaUser />
-                <span className="user-name">{userProfile?.displayName || userProfile?.firstName || 'User'}</span>
+                <span>{userProfile?.displayName || userProfile?.firstName || 'User'}</span>
               </Link>
             ) : (
-              <button className="login-button" onClick={onLoginClick}>
+              <button className="login-btn" onClick={onLoginClick}>
                 <FaUser />
-                <span>Login</span>
+                <span>Log in</span>
               </button>
             )}
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <button 
+          className="mobile-menu-btn"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <FaBars />
+        </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="mobile-menu-overlay">
-          <div className="mobile-menu">
-            <div className="mobile-menu-header">
-              <h3>Menu</h3>
-              <button onClick={() => setIsMenuOpen(false)}>
-                <FaTimes />
-              </button>
-            </div>
-            <nav className="mobile-nav">
-              {menuItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="mobile-nav-item"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
+        <div className="mobile-menu">
+          <nav className="mobile-nav">
+            <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link to="/products" onClick={() => setIsMenuOpen(false)}>T-Shirts</Link>
+            <Link to="/polo" onClick={() => setIsMenuOpen(false)}>Polo</Link>
+            <Link to="/support" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          </nav>
         </div>
       )}
     </header>

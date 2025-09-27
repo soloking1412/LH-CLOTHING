@@ -7,6 +7,7 @@ import LoginModal from './components/LoginModal';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
+import Polo from './pages/Polo';
 import FAQ from './pages/FAQ';
 import ReturnPolicy from './pages/ReturnPolicy';
 import Support from './pages/Support';
@@ -69,6 +70,14 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="App">
+        {/* Promotional Banner */}
+        <div className="promo-banner">
+          <div className="promo-content">
+            <span className="promo-text">Grab our launch offer -Save25% Own the luxe</span>
+            <span className="promo-text">EXTRA 10% OFF ON PREPAID ORDERS</span>
+          </div>
+        </div>
+        
         <Header
           cartCount={getCartCount()}
           onLoginClick={() => setIsLoginModalOpen(true)}
@@ -80,6 +89,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/product/:id" element={<ProductDetails addToCart={addToCart} />} />
+            <Route path="/polo" element={<Polo />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/return-policy" element={<ReturnPolicy />} />
             <Route path="/support" element={<Support />} />

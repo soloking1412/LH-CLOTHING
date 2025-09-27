@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FaArrowLeft, FaShoppingCart, FaShare, FaHeart, FaStar, FaCheck, FaTimes } from 'react-icons/fa';
+import { FaArrowLeft, FaShoppingCart, FaShare, FaHeart, FaStar, FaCheck, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './ProductDetails.css';
 
 const ProductDetails = ({ addToCart }) => {
   const { id } = useParams();
   const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const [showSizeGuide, setShowSizeGuide] = useState(false);
@@ -14,17 +15,24 @@ const ProductDetails = ({ addToCart }) => {
   const products = {
     1: {
       id: 1,
-      name: 'OVERSIZED STARBOY TEE',
-      subtitle: 'THE WEEKEND',
+      name: 'OVERSIZED KENDRICK TEE',
+      subtitle: 'THE CULTURE GLITCH',
       price: 749,
       originalPrice: 1049,
       images: [
-        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1503341504253-dff4815485f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        '/images/products/K-1.jpg',
+        '/images/products/K-2.jpg',
+        '/images/products/K-3.jpg',
+        '/images/products/K-4.jpg',
+        '/images/products/K-5.jpg',
+        '/images/products/K-6.jpg'
       ],
       sizes: ['M', 'L', 'XL', 'XXL'],
+      colors: [
+        { name: 'Black', value: 'black', available: true },
+        { name: 'White', value: 'white', available: true },
+        { name: 'Green', value: 'green', available: true }
+      ],
       fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
       fit: 'Relaxed Oversized Fit for streetwear styling',
       finish: 'Bio-Washed & Pre-Shrunk for long-lasting softness',
@@ -63,10 +71,12 @@ const ProductDetails = ({ addToCart }) => {
       price: 749,
       originalPrice: 1049,
       images: [
-        'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1503341504253-dff4815485f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        '/images/products/T-1.jpg',
+        '/images/products/T-2.jpg',
+        '/images/products/T-3.jpg',
+        '/images/products/T-4.jpg',
+        '/images/products/T-5.jpg',
+        '/images/products/T-6.jpg'
       ],
       sizes: ['M', 'L', 'XL', 'XXL'],
       fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
@@ -101,15 +111,17 @@ const ProductDetails = ({ addToCart }) => {
     },
     3: {
       id: 3,
-      name: 'OVERSIZED STAY WEIRD TEE',
-      subtitle: 'MR BEAN',
+      name: 'OVERSIZED WEEKND TEE',
+      subtitle: 'THE WEEKND COLLECTION',
       price: 749,
       originalPrice: 1049,
       images: [
-        'https://images.unsplash.com/photo-1503341504253-dff4815485f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        '/images/products/W-1.jpg',
+        '/images/products/W-2.jpg',
+        '/images/products/W-3.jpg',
+        '/images/products/W-4.jpg',
+        '/images/products/W-5.jpg',
+        '/images/products/W-6.jpg'
       ],
       sizes: ['M', 'L', 'XL', 'XXL'],
       fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
@@ -142,49 +154,6 @@ const ProductDetails = ({ addToCart }) => {
         { id: 2, name: 'Zara K.', rating: 4, comment: 'Great quality and comfortable fit.', date: '2024-01-11' }
       ]
     },
-    4: {
-      id: 4,
-      name: 'OVERSIZED RESPECT+ TEE',
-      subtitle: 'GRAND THEFT AUTO',
-      price: 749,
-      originalPrice: 1049,
-      images: [
-        'https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1503341504253-dff4815485f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-      ],
-      sizes: ['M', 'L', 'XL', 'XXL'],
-      fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
-      fit: 'Relaxed Oversized Fit for streetwear styling',
-      finish: 'Bio-Washed & Pre-Shrunk for long-lasting softness',
-      neckline: 'Durable Ribbed Crew Neck',
-      stitching: 'Double-stitched for extra strength & durability',
-      breathability: 'Lightweight yet premium, perfect for Indian weather',
-      print: 'High-Quality DTF Print (crack-resistant, vibrant colors, long-lasting even after multiple wash)',
-      washCare: [
-        'Machine wash cold (30°C) with similar colors',
-        'Use mild detergent only',
-        'Avoid bleach & fabric softeners (to protect the DTF print)'
-      ],
-      drying: [
-        'Do not tumble dry',
-        'Dry in shade to maintain fabric & print quality'
-      ],
-      ironing: [
-        'Iron inside out on low heat',
-        'Never iron directly on DTF print'
-      ],
-      storage: [
-        'Fold neatly (avoid stretching)',
-        'Store in a cool, dry place'
-      ],
-      returnPolicy: 'Our tees are a one-way love affair. Once they\'re yours, they stay yours—no returns, no take-backs. Just endless vibes. We put a lot of care into every piece we create. Since each order is made especially for you, we don\'t accept returns or exchanges. Please check the size chart before ordering.',
-      reviews: [
-        { id: 1, name: 'Rohan D.', rating: 5, comment: 'GTA vibes! The print quality is insane.', date: '2024-01-13' },
-        { id: 2, name: 'Ananya S.', rating: 5, comment: 'Perfect oversized fit and amazing streetwear look.', date: '2024-01-10' }
-      ]
-    }
   };
 
   const product = products[id];
@@ -232,8 +201,8 @@ const ProductDetails = ({ addToCart }) => {
   const averageRating = product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length;
 
   return (
-    <div className="product-details">
-      <div className="container">
+    <div className="kiivo-product-details">
+      <div className="kiivo-page-container">
         {/* Back Button */}
         <Link to="/products" className="back-button">
           <FaArrowLeft />
@@ -243,9 +212,44 @@ const ProductDetails = ({ addToCart }) => {
         <div className="product-layout">
           {/* Product Images */}
           <div className="product-images">
-            <div className="main-image">
-              <img src={product.images[activeImage]} alt={product.name} />
+            <div className="image-carousel">
+              <div className="carousel-container">
+                <div 
+                  className="carousel-track"
+                  style={{ transform: `translateX(-${activeImage * 100}%)` }}
+                >
+                  {product.images.map((image, index) => (
+                    <div key={index} className="carousel-slide">
+                      <img src={image} alt={`${product.name} ${index + 1}`} />
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Navigation Arrows */}
+                <button 
+                  className="carousel-nav carousel-prev"
+                  onClick={() => setActiveImage(activeImage > 0 ? activeImage - 1 : product.images.length - 1)}
+                  disabled={product.images.length <= 1}
+                >
+                  <FaChevronLeft />
+                </button>
+                
+                <button 
+                  className="carousel-nav carousel-next"
+                  onClick={() => setActiveImage(activeImage < product.images.length - 1 ? activeImage + 1 : 0)}
+                  disabled={product.images.length <= 1}
+                >
+                  <FaChevronRight />
+                </button>
+              </div>
+              
+              {/* Image Counter */}
+              <div className="image-counter">
+                <span>{activeImage + 1} / {product.images.length}</span>
+              </div>
             </div>
+            
+            {/* Thumbnail Navigation */}
             <div className="image-thumbnails">
               {product.images.map((image, index) => (
                 <button
@@ -366,6 +370,27 @@ const ProductDetails = ({ addToCart }) => {
                 </div>
               )}
             </div>
+
+            {/* Color Selection */}
+            {product.colors && (
+              <div className="color-selection">
+                <h3>Select Color</h3>
+                <div className="color-options">
+                  {product.colors.map((color) => (
+                    <button
+                      key={color.value}
+                      className={`color-option ${selectedColor === color.value ? 'selected' : ''} ${!color.available ? 'unavailable' : ''}`}
+                      onClick={() => color.available && setSelectedColor(color.value)}
+                      disabled={!color.available}
+                      style={{ backgroundColor: color.value }}
+                      title={color.name}
+                    >
+                      {color.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Quantity Selection */}
             <div className="quantity-selection">
