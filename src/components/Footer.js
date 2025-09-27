@@ -79,7 +79,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p>&copy; 2024 LH STYLEHUB. All rights reserved.</p>
+            <p>&copy; 2025 LH STYLEHUB. All rights reserved.</p>
             <div className="footer-bottom-links">
               <Link to="/privacy">Privacy Policy</Link>
               <Link to="/terms">Terms and Conditions</Link>
