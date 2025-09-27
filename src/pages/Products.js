@@ -7,10 +7,10 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      name: 'OVERSIZED KENDRICK TEE',
+      name: 'OVERSIZED DAMN TEE',
       subtitle: 'THE CULTURE GLITCH',
       price: 749,
-      originalPrice: 1049,
+      originalPrice: 999,
       image: '/images/products/K-1.jpg',
       category: 'THE CULTURE GLITCH'
     },
@@ -19,18 +19,18 @@ const Products = () => {
       name: 'OVERSIZED I CAN FLY TEE',
       subtitle: 'TRAVIS SCOTT',
       price: 749,
-      originalPrice: 1049,
+      originalPrice: 999,
       image: '/images/products/T-1.jpg',
       category: 'TRAVIS SCOTT COLLECTION'
     },
     {
       id: 3,
-      name: 'OVERSIZED WEEKND TEE',
-      subtitle: 'THE WEEKND COLLECTION',
+      name: 'OVERSIZED XO HORIZON TEE',
+      subtitle: 'THE WEEKND',
       price: 749,
-      originalPrice: 1049,
+      originalPrice: 999,
       image: '/images/products/W-1.jpg',
-      category: 'THE WEEKND COLLECTION'
+      category: 'THE WEEKND'
     },
   ];
 
@@ -99,7 +99,7 @@ const Products = () => {
         {/* Call to Action */}
         <div className="cta-section">
           <h2>Ready to Rock the Streetwear Look?</h2>
-          <p>Join the LH CLOTHING movement and express your unique style</p>
+          <p>Join the LH STYLEHUB movement and express your unique style</p>
           <div className="cta-buttons">
             <Link to="/" className="cta-btn primary">Back to Home</Link>
             <Link to="/story" className="cta-btn secondary">Our Story</Link>

@@ -1,44 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaBell, FaGift, FaFire, FaStar } from 'react-icons/fa';
 import './Polo.css';
 
 const Polo = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  // Set launch date to 30 days from now
-  const launchDate = new Date();
-  launchDate.setDate(launchDate.getDate() + 30);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate.getTime() - now;
-
-      if (distance > 0) {
-        setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [launchDate]);
 
   return (
     <div className="polo-page">
       <div className="container">
-        {/* Hero Section with Countdown */}
+        {/* Hero Section */}
         <section className="polo-hero">
           <div className="hero-content">
             <div className="hero-text">
@@ -54,44 +24,9 @@ const Polo = () => {
               
               <p className="hero-description">
                 Get ready for the most exclusive polo collection launch. 
-                Premium quality, unique designs, and festival vibes await you.
+    
               </p>
 
-              {/* Countdown Timer */}
-              <div className="countdown-container">
-                <div className="countdown-title">
-                  <FaBell className="bell-icon" />
-                  <span>LAUNCH COUNTDOWN</span>
-                </div>
-                
-                <div className="countdown-timer">
-                  <div className="time-unit">
-                    <div className="time-value">{timeLeft.days}</div>
-                    <div className="time-label">DAYS</div>
-                  </div>
-                  
-                  <div className="time-separator">:</div>
-                  
-                  <div className="time-unit">
-                    <div className="time-value">{timeLeft.hours}</div>
-                    <div className="time-label">HOURS</div>
-                  </div>
-                  
-                  <div className="time-separator">:</div>
-                  
-                  <div className="time-unit">
-                    <div className="time-value">{timeLeft.minutes}</div>
-                    <div className="time-label">MINUTES</div>
-                  </div>
-                  
-                  <div className="time-separator">:</div>
-                  
-                  <div className="time-unit">
-                    <div className="time-value">{timeLeft.seconds}</div>
-                    <div className="time-label">SECONDS</div>
-                  </div>
-                </div>
-              </div>
 
               {/* CTA Buttons */}
               <div className="hero-actions">

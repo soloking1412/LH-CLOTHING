@@ -5,7 +5,6 @@ import {
   FaPhone, 
   FaMapMarkerAlt, 
   FaClock, 
-  FaComments, 
   FaRobot, 
   FaTimes, 
   FaPaperPlane,
@@ -39,7 +38,7 @@ const Support = () => {
       {
         id: 1,
         type: 'bot',
-        message: 'Hey there! 👋 I\'m your LH CLOTHING AI assistant. How can I help you today?',
+        message: 'Hey there! 👋 I\'m your LH STYLEHUB AI assistant. How can I help you today?',
         timestamp: new Date()
       }
     ]);
@@ -114,7 +113,7 @@ const Support = () => {
                 <h3>WhatsApp Support</h3>
                 <p>Quick responses, instant help</p>
                 <a 
-                  href="https://wa.me/919876543210" 
+                  href="https://wa.me/919080041049" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="contact-button"
@@ -146,7 +145,7 @@ const Support = () => {
                 <h3>Phone Support</h3>
                 <p>Direct conversation</p>
                 <a 
-                  href="tel:+919876543210" 
+                  href="tel:+919080041049" 
                   className="contact-button"
                 >
                   Call Now
@@ -179,7 +178,7 @@ const Support = () => {
                 <FaPhone className="info-icon" />
                 <div className="info-content">
                   <h4>Phone</h4>
-                  <p>+91 98765 43210</p>
+                  <p>+919080041049</p>
                 </div>
               </div>
               
@@ -195,7 +194,7 @@ const Support = () => {
                 <FaMapMarkerAlt className="info-icon" />
                 <div className="info-content">
                   <h4>Address</h4>
-                  <p>Mumbai, Maharashtra, India</p>
+                  <p>Peelamedu, Coimbatore</p>
                 </div>
               </div>
               
@@ -254,7 +253,7 @@ const Support = () => {
             <div className="chat-header">
               <div className="chat-title">
                 <FaRobot />
-                <span>LH CLOTHING AI Assistant</span>
+                <span>LH STYLEHUB AI Assistant</span>
               </div>
               <button 
                 className="close-chat"

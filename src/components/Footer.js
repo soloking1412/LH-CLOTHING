@@ -12,8 +12,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="footer-section">
             <div className="footer-logo">
-              <span className="footer-logo-text">LH</span>
-              <span className="footer-logo-subtitle">CLOTHING</span>
+              <img src="/images/Logo/LH_Logo_White-01.png" alt="LH STYLEHUB" className="footer-logo-image" />
             </div>
             <p className="footer-description">
               Premium oversized streetwear that speaks your language. 
@@ -63,7 +62,7 @@ const Footer = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <FaPhone />
-                <span>+91 98765 43210</span>
+                <span>+919080041049</span>
               </div>
               <div className="contact-item">
                 <FaEnvelope />
@@ -71,7 +70,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <FaMapMarkerAlt />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Peelamedu, Coimbatore</span>
               </div>
             </div>
           </div>
@@ -80,7 +79,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p>&copy; 2024 LH CLOTHING. All rights reserved.</p>
+            <p>&copy; 2024 LH STYLEHUB. All rights reserved.</p>
             <div className="footer-bottom-links">
               <Link to="/privacy">Privacy Policy</Link>
               <Link to="/terms">Terms of Service</Link>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/Header';
@@ -20,6 +20,16 @@ function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [currentPromo, setCurrentPromo] = useState(0);
+
+  // Auto-slide promotional offers every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPromo((prev) => (prev + 1) % 2);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const addToCart = (product) => {
     setCartItems(prev => {
@@ -72,9 +82,13 @@ function App() {
         <div className="App">
         {/* Promotional Banner */}
         <div className="promo-banner">
-          <div className="promo-content">
-            <span className="promo-text">Grab our launch offer -Save25% Own the luxe</span>
-            <span className="promo-text">EXTRA 10% OFF ON PREPAID ORDERS</span>
+          <div className="promo-slideshow">
+            <div className={`promo-slide ${currentPromo === 0 ? 'active' : ''}`}>
+              <span className="promo-text">Grab our launch offer - Save 25%</span>
+            </div>
+            <div className={`promo-slide ${currentPromo === 1 ? 'active' : ''}`}>
+              <span className="promo-text">Own the luxe!</span>
+            </div>
           </div>
         </div>
         
@@ -90,9 +104,9 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/product/:id" element={<ProductDetails addToCart={addToCart} />} />
             <Route path="/polo" element={<Polo />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/return-policy" element={<ReturnPolicy />} />
-            <Route path="/support" element={<Support />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/return-policy" element={<ReturnPolicy />} />
+                <Route path="/support" element={<Support />} />
             <Route path="/story" element={<div className="page-placeholder">Our Story Page</div>} />
             <Route path="/cart" element={<div className="page-placeholder">Cart Page</div>} />
             <Route path="/tracking" element={<div className="page-placeholder">Order Tracking Page</div>} />

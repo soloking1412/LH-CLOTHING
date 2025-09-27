@@ -230,11 +230,11 @@
 
 /* Place Order Button */
 .place-order-btn {
-  background: linear-gradient(135deg, #28a745, #20c997);
+  background: #000000;
   color: white;
   border: none;
   padding: 1.5rem 3rem;
-  border-radius: 15px;
+  border-radius: 8px;
   font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
@@ -245,11 +245,14 @@
   gap: 0.75rem;
   margin-top: 2rem;
   width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .place-order-btn:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(40, 167, 69, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: #333333;
 }
 
 .place-order-btn:disabled {
@@ -288,23 +291,26 @@
 
 .login-btn,
 .shop-btn {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: #000000;
   color: white;
   border: none;
   padding: 1rem 2rem;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
   display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .login-btn:hover,
 .shop-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: #333333;
 }
 
 /* Responsive Design */

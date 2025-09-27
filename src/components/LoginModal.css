@@ -171,7 +171,7 @@
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: #000000;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -185,7 +185,8 @@
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background: #333333;
 }
 
 .submit-btn:disabled {
@@ -204,7 +205,7 @@
 .toggle-mode-btn {
   background: none;
   border: none;
-  color: #007bff;
+  color: #000000;
   text-decoration: underline;
   cursor: pointer;
   font-weight: 600;
@@ -212,7 +213,7 @@
 }
 
 .toggle-mode-btn:hover {
-  color: #0056b3;
+  color: #333333;
 }
 
 /* Responsive Design */

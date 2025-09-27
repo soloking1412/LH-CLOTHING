@@ -12,19 +12,18 @@ const Header = ({ cartCount, onLoginClick, onCartClick }) => {
   return (
     <header className="header">
       <div className="header-container">
-        {/* Logo */}
-        <Link to="/" className="logo">
-          <span className="logo-text">LH</span>
-          <span className="logo-subtitle">CLOTHING</span>
-        </Link>
-
-        {/* Navigation */}
-        <nav className="nav">
+        {/* Left Side - Navigation */}
+        <nav className="nav-left">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/products" className="nav-link">T-Shirts</Link>
           <Link to="/polo" className="nav-link">Polo</Link>
           <Link to="/support" className="nav-link">Contact</Link>
         </nav>
+
+        {/* Center - Logo */}
+        <Link to="/" className="logo">
+          <img src="/images/Logo/LH_Logo_White-01.png" alt="LH STYLEHUB" className="logo-image" />
+        </Link>
 
         {/* Right Side */}
         <div className="header-right">
@@ -66,16 +65,16 @@ const Header = ({ cartCount, onLoginClick, onCartClick }) => {
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="mobile-menu">
-          <nav className="mobile-nav">
-            <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link to="/products" onClick={() => setIsMenuOpen(false)}>T-Shirts</Link>
-            <Link to="/polo" onClick={() => setIsMenuOpen(false)}>Polo</Link>
-            <Link to="/support" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-          </nav>
-        </div>
-      )}
+          {isMenuOpen && (
+            <div className="mobile-menu">
+              <nav className="mobile-nav">
+                <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+                <Link to="/products" onClick={() => setIsMenuOpen(false)}>T-Shirts</Link>
+                <Link to="/polo" onClick={() => setIsMenuOpen(false)}>Polo</Link>
+                <Link to="/support" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+              </nav>
+            </div>
+          )}
     </header>
   );
 };

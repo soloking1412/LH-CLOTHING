@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FaArrowLeft, FaShoppingCart, FaShare, FaHeart, FaStar, FaCheck, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaArrowLeft, FaShoppingCart, FaShare, FaHeart, FaStar, FaTimes, FaChevronLeft, FaChevronRight, FaChevronDown } from 'react-icons/fa';
 import './ProductDetails.css';
 
 const ProductDetails = ({ addToCart }) => {
@@ -10,15 +10,16 @@ const ProductDetails = ({ addToCart }) => {
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const [showSizeGuide, setShowSizeGuide] = useState(false);
+  const [activeAccordion, setActiveAccordion] = useState(null);
 
   // Product data based on the specification
   const products = {
     1: {
       id: 1,
-      name: 'OVERSIZED KENDRICK TEE',
+      name: 'OVERSIZED DAMN TEE',
       subtitle: 'THE CULTURE GLITCH',
       price: 749,
-      originalPrice: 1049,
+      originalPrice: 999,
       images: [
         '/images/products/K-1.jpg',
         '/images/products/K-2.jpg',
@@ -27,7 +28,7 @@ const ProductDetails = ({ addToCart }) => {
         '/images/products/K-5.jpg',
         '/images/products/K-6.jpg'
       ],
-      sizes: ['M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       colors: [
         { name: 'Black', value: 'black', available: true },
         { name: 'White', value: 'white', available: true },
@@ -69,7 +70,7 @@ const ProductDetails = ({ addToCart }) => {
       name: 'OVERSIZED I CAN FLY TEE',
       subtitle: 'TRAVIS SCOTT',
       price: 749,
-      originalPrice: 1049,
+      originalPrice: 999,
       images: [
         '/images/products/T-1.jpg',
         '/images/products/T-2.jpg',
@@ -78,7 +79,7 @@ const ProductDetails = ({ addToCart }) => {
         '/images/products/T-5.jpg',
         '/images/products/T-6.jpg'
       ],
-      sizes: ['M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
       fit: 'Relaxed Oversized Fit for streetwear styling',
       finish: 'Bio-Washed & Pre-Shrunk for long-lasting softness',
@@ -111,10 +112,10 @@ const ProductDetails = ({ addToCart }) => {
     },
     3: {
       id: 3,
-      name: 'OVERSIZED WEEKND TEE',
+      name: 'OVERSIZED XO HORIZON TEE',
       subtitle: 'THE WEEKND COLLECTION',
       price: 749,
-      originalPrice: 1049,
+      originalPrice: 999,
       images: [
         '/images/products/W-1.jpg',
         '/images/products/W-2.jpg',
@@ -123,7 +124,7 @@ const ProductDetails = ({ addToCart }) => {
         '/images/products/W-5.jpg',
         '/images/products/W-6.jpg'
       ],
-      sizes: ['M', 'L', 'XL', 'XXL'],
+      sizes: ['S','M', 'L', 'XL', 'XXL'],
       fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
       fit: 'Relaxed Oversized Fit for streetwear styling',
       finish: 'Bio-Washed & Pre-Shrunk for long-lasting softness',
@@ -179,16 +180,18 @@ const ProductDetails = ({ addToCart }) => {
     }
     addToCart({
       ...product,
+      image: product.images[0], // Use first image for cart
       selectedSize,
       quantity
     });
+    alert(`${product.name} (Size: ${selectedSize}) added to cart!`);
   };
 
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
         title: product.name,
-        text: `Check out this amazing ${product.name} from LH CLOTHING!`,
+        text: `Check out this amazing ${product.name} from LH STYLEHUB!`,
         url: window.location.href
       });
     } else {
@@ -196,6 +199,10 @@ const ProductDetails = ({ addToCart }) => {
       navigator.clipboard.writeText(window.location.href);
       alert('Link copied to clipboard!');
     }
+  };
+
+  const toggleAccordion = (section) => {
+    setActiveAccordion(activeAccordion === section ? null : section);
   };
 
   const averageRating = product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length;
@@ -340,6 +347,12 @@ const ProductDetails = ({ addToCart }) => {
                         </thead>
                         <tbody>
                           <tr>
+                            <td>S</td>
+                            <td>38-40</td>
+                            <td>26-27</td>
+                            <td>16-17</td>
+                          </tr>
+                          <tr>
                             <td>M</td>
                             <td>42-44</td>
                             <td>28-29</td>
@@ -422,6 +435,14 @@ const ProductDetails = ({ addToCart }) => {
               >
                 <FaShoppingCart />
                 Add to Cart
+              </button>
+              
+              <button 
+                className="buy-now-btn"
+                onClick={handleAddToCart}
+                disabled={!selectedSize}
+              >
+                Buy It Now
               </button>
               
               <button className="wishlist-btn">
@@ -535,6 +556,122 @@ const ProductDetails = ({ addToCart }) => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Product Information Accordion */}
+        <div className="product-info-accordion">
+          <div className="accordion-item">
+            <div 
+              className="accordion-header"
+              onClick={() => toggleAccordion('description')}
+            >
+              <span className="accordion-title">DESCRIPTION</span>
+              <FaChevronDown className={`accordion-icon ${activeAccordion === 'description' ? 'active' : ''}`} />
+            </div>
+            {activeAccordion === 'description' && (
+              <div className="accordion-content">
+                <div className="product-description">
+                  <p>{product.description}</p>
+                  <div className="details-grid">
+                    <div className="detail-item">
+                      <strong>Fabric:</strong> {product.fabric}
+                    </div>
+                    <div className="detail-item">
+                      <strong>Fit:</strong> {product.fit}
+                    </div>
+                    <div className="detail-item">
+                      <strong>Finish:</strong> {product.finish}
+                    </div>
+                    <div className="detail-item">
+                      <strong>Neckline:</strong> {product.neckline}
+                    </div>
+                    <div className="detail-item">
+                      <strong>Stitching:</strong> {product.stitching}
+                    </div>
+                    <div className="detail-item">
+                      <strong>Breathability:</strong> {product.breathability}
+                    </div>
+                    <div className="detail-item">
+                      <strong>Print:</strong> {product.print}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="accordion-item">
+            <div 
+              className="accordion-header"
+              onClick={() => toggleAccordion('shipping')}
+            >
+              <span className="accordion-title">SHIPPING</span>
+              <FaChevronDown className={`accordion-icon ${activeAccordion === 'shipping' ? 'active' : ''}`} />
+            </div>
+            {activeAccordion === 'shipping' && (
+              <div className="accordion-content">
+                <div className="shipping-info">
+                  <h4>Shipping Information</h4>
+                  <ul>
+                    <li>Free shipping on orders above ₹999</li>
+                    <li>Standard delivery: 3-5 business days</li>
+                    <li>Express delivery: 1-2 business days (₹99 extra)</li>
+                    <li>Cash on delivery available</li>
+                    <li>Track your order with real-time updates</li>
+                  </ul>
+                  <h4>Aftercare Instructions</h4>
+                  <div className="care-section">
+                    <h5>Wash Care</h5>
+                    <ul>
+                      <li>Machine wash cold (30°C max)</li>
+                      <li>Use mild detergent</li>
+                      <li>Do not bleach</li>
+                      <li>Tumble dry low heat</li>
+                      <li>Iron on low heat</li>
+                    </ul>
+                    <h5>Storage</h5>
+                    <ul>
+                      <li>Store in cool, dry place</li>
+                      <li>Fold properly to maintain shape</li>
+                      <li>Avoid direct sunlight</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="accordion-item">
+            <div 
+              className="accordion-header"
+              onClick={() => toggleAccordion('returns')}
+            >
+              <span className="accordion-title">RETURN & EXCHANGE</span>
+              <FaChevronDown className={`accordion-icon ${activeAccordion === 'returns' ? 'active' : ''}`} />
+            </div>
+            {activeAccordion === 'returns' && (
+              <div className="accordion-content">
+                <div className="return-policy">
+                  <h4>Return Policy</h4>
+                  <p>{product.returnPolicy}</p>
+                  <ul>
+                    <li>30-day return window from delivery date</li>
+                    <li>Items must be unworn, unwashed, and with original tags</li>
+                    <li>Free return shipping for defective items</li>
+                    <li>Exchange available for different sizes</li>
+                    <li>Refund processed within 5-7 business days</li>
+                  </ul>
+                  <h4>Exchange Policy</h4>
+                  <ul>
+                    <li>Size exchanges available within 15 days</li>
+                    <li>Color exchanges subject to availability</li>
+                    <li>No additional charges for size exchanges</li>
+                    <li>Exchange items shipped within 2-3 business days</li>
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

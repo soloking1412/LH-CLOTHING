@@ -74,7 +74,7 @@ const FAQ = () => {
         {/* Page Header */}
         <div className="faq-page-header">
           <h1>FAQ : FAQ'S</h1>
-          <p>Everything you need to know about LH CLOTHING oversized streetwear</p>
+          <p>Everything you need to know about LH STYLEHUB oversized streetwear</p>
         </div>
 
         {/* FAQ Accordion */}
@@ -133,6 +133,9 @@ const FAQ = () => {
             <h3>📏 Size Guide Reminder</h3>
             <p>Since we don't offer returns or exchanges, please check our size chart carefully before ordering. Our oversized fit is designed to be roomy and comfortable!</p>
             <div className="size-tips">
+              <div className="tip">
+                <strong>S:</strong> Chest 38-40", Length 26-27"
+              </div>
               <div className="tip">
                 <strong>M:</strong> Chest 42-44", Length 28-29"
               </div>
