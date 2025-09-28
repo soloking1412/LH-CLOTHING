@@ -5,16 +5,15 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCekoXLCybKxishuRUQ-U3lo2a1FFYPW7k",
-  authDomain: "cafe-billing-96901.firebaseapp.com",
-  projectId: "cafe-billing-96901",
-  storageBucket: "cafe-billing-96901.firebasestorage.app",
-  messagingSenderId: "779597144222",
-  appId: "1:779597144222:web:0524b254dea2759c709b8f",
-  measurementId: "G-W93HVQ63SH",
-  databaseURL: "https://cafe-billing-96901-default-rtdb.firebaseio.com"
+  apiKey: "AIzaSyCJAUiWNNWl5dQzIq9Sc228jjxQFefxOQs",
+  authDomain: "lhstylehub-2c188.firebaseapp.com",
+  projectId: "lhstylehub-2c188",
+  storageBucket: "lhstylehub-2c188.firebasestorage.app",
+  messagingSenderId: "55338372665",
+  appId: "1:55338372665:web:34fec9b4dd5a25585987e8",
+  measurementId: "G-EZV04KB2LY",
+  databaseURL: "https://lhstylehub-2c188-default-rtdb.firebaseio.com/"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 

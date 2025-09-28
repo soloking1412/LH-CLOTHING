@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signOut, 
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
   onAuthStateChanged,
-  updateProfile 
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup
 } from 'firebase/auth';
 import { ref, set, get, push } from 'firebase/database';
 import { auth, database } from '../firebase/config';
@@ -20,18 +22,27 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [userProfile, setUserProfile] = useState(null);
 
-  // Sign up function
+  // ✅ Google Sign-In
+  const signInWithGoogle = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      return result.user;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  // ✅ Sign Up
   async function signup(email, password, firstName, lastName, phone) {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      
-      // Update profile with display name
+
       await updateProfile(user, {
         displayName: `${firstName} ${lastName}`
       });
 
-      // Create user profile in database
       const userProfileData = {
         uid: user.uid,
         email: user.email,
@@ -44,14 +55,14 @@ export function AuthProvider({ children }) {
       };
 
       await set(ref(database, `users/${user.uid}`), userProfileData);
-      
+
       return user;
     } catch (error) {
       throw error;
     }
   }
 
-  // Login function
+  // ✅ Login
   async function login(email, password) {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -61,12 +72,12 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Logout function
+  // ✅ Logout
   function logout() {
     return signOut(auth);
   }
 
-  // Get user profile from database
+  // ✅ Get Profile
   async function getUserProfile(uid) {
     try {
       const snapshot = await get(ref(database, `users/${uid}`));
@@ -80,7 +91,7 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Update user profile
+  // ✅ Update Profile
   async function updateUserProfile(uid, updates) {
     try {
       await set(ref(database, `users/${uid}`), updates);
@@ -91,7 +102,7 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Add order to user's order history
+  // ✅ Add Order
   async function addOrder(uid, orderData) {
     try {
       const orderRef = await push(ref(database, `users/${uid}/orders`), {
@@ -107,7 +118,7 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Get user's order history
+  // ✅ Get Orders
   async function getUserOrders(uid) {
     try {
       const snapshot = await get(ref(database, `users/${uid}/orders`));
@@ -128,11 +139,11 @@ export function AuthProvider({ children }) {
     }
   }
 
+  // ✅ Auth State Listener
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setCurrentUser(user);
-        // Fetch user profile from database
         const profile = await getUserProfile(user.uid);
         setUserProfile(profile);
       } else {
@@ -154,7 +165,8 @@ export function AuthProvider({ children }) {
     getUserProfile,
     updateUserProfile,
     addOrder,
-    getUserOrders
+    getUserOrders,
+    signInWithGoogle // ✅ Google Login exposed here
   };
 
   return (

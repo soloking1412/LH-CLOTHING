@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { FaTimes, FaEye, FaEyeSlash, FaUser, FaEnvelope, FaLock, FaPhone } from 'react-icons/fa';
+import {
+  FaTimes, FaEye, FaEyeSlash, FaUser,
+  FaEnvelope, FaLock, FaPhone, FaGoogle
+} from 'react-icons/fa';
 import { useAuth } from '../contexts/AuthContext';
 import './LoginModal.css';
 
@@ -17,7 +20,7 @@ const LoginModal = ({ isOpen, onClose }) => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const { login, signup } = useAuth();
+  const { login, signup, signInWithGoogle } = useAuth();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +28,7 @@ const LoginModal = ({ isOpen, onClose }) => {
       ...prev,
       [name]: value
     }));
-    setError(''); // Clear error when user types
+    setError('');
   };
 
   const handleSubmit = async (e) => {
@@ -60,7 +63,7 @@ const LoginModal = ({ isOpen, onClose }) => {
           setError('Incorrect password.');
           break;
         case 'auth/email-already-in-use':
-          setError('An account with this email already exists. Please use a different email or try signing in.');
+          setError('An account with this email already exists.');
           break;
         case 'auth/weak-password':
           setError('Password should be at least 6 characters long.');
@@ -69,20 +72,40 @@ const LoginModal = ({ isOpen, onClose }) => {
           setError('Please enter a valid email address.');
           break;
         case 'auth/operation-not-allowed':
-          setError('Email/password authentication is not enabled. Please contact support.');
+          setError('Email/password authentication is not enabled.');
           break;
         case 'auth/network-request-failed':
-          setError('Network error. Please check your internet connection and try again.');
+          setError('Network error. Please check your connection.');
           break;
         case 'auth/too-many-requests':
           setError('Too many failed attempts. Please try again later.');
           break;
         case 'PERMISSION_DENIED':
-          setError('Database access denied. Please contact support.');
+          setError('Database access denied.');
           break;
         default:
-          setError(`Error: ${error.message}. Please try again.`);
+          setError(`Error: ${error.message}`);
       }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    setLoading(true);
+    setError('');
+    setSuccess('');
+
+    try {
+      const user = await signInWithGoogle();
+      setSuccess(`Welcome, ${user.displayName}`);
+      setTimeout(() => {
+        onClose();
+        setFormData({ email: '', password: '', firstName: '', lastName: '', phone: '' });
+      }, 1000);
+    } catch (error) {
+      console.error('Google sign-in error:', error);
+      setError("Google sign-in failed. " + error.message);
     } finally {
       setLoading(false);
     }
@@ -111,6 +134,18 @@ const LoginModal = ({ isOpen, onClose }) => {
 
         {error && <div className="error-message">{error}</div>}
         {success && <div className="success-message">{success}</div>}
+
+        <button
+          type="button"
+          className="google-login-btn"
+          onClick={handleGoogleLogin}
+          disabled={loading}
+        >
+          <FaGoogle className="google-icon" />
+          Continue with Google
+        </button>
+
+        <div className="divider">or</div>
 
         <form onSubmit={handleSubmit} className="auth-form">
           {!isLogin && (
