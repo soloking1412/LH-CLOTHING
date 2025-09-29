@@ -21,12 +21,12 @@ const ProductDetails = ({ addToCart }) => {
       price: 749,
       originalPrice: 999,
       images: [
-        '/images/products/K-1.jpg',
-        '/images/products/K-2.jpg',
-        '/images/products/K-3.jpg',
-        '/images/products/K-4.jpg',
-        '/images/products/K-5.jpg',
-        '/images/products/K-6.jpg'
+    '/images/products/K-1.jpg',
+    '/images/products/K-2.jpg',
+    '/images/products/K-3.jpg',
+    '/images/products/K-4.jpg',
+    '/images/products/K-5.jpg',
+    '/images/products/K-6.jpg'
       ],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       colors: [
@@ -71,12 +71,12 @@ const ProductDetails = ({ addToCart }) => {
       price: 749,
       originalPrice: 999,
       images: [
-        '/images/products/T-1.jpg',
-        '/images/products/T-2.jpg',
-        '/images/products/T-3.jpg',
-        '/images/products/T-4.jpg',
-        '/images/products/T-5.jpg',
-        '/images/products/T-6.jpg'
+    '/images/products/T-1.jpg',
+    '/images/products/T-2.jpg',
+    '/images/products/T-3.jpg',
+    '/images/products/T-4.jpg',
+    '/images/products/T-5.jpg',
+    '/images/products/T-6.jpg'
       ],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
@@ -116,12 +116,12 @@ const ProductDetails = ({ addToCart }) => {
       price: 749,
       originalPrice: 999,
       images: [
-        '/images/products/W-1.jpg',
-        '/images/products/W-2.jpg',
-        '/images/products/W-3.jpg',
-        '/images/products/W-4.jpg',
-        '/images/products/W-5.jpg',
-        '/images/products/W-6.jpg'
+    '/images/products/W-1.jpg',
+    '/images/products/W-2.jpg',
+    '/images/products/W-3.jpg',
+    '/images/products/W-4.jpg',
+    '/images/products/W-5.jpg',
+    '/images/products/W-6.jpg'
       ],
       sizes: ['S','M', 'L', 'XL', 'XXL'],
       fabric: '220 GSM, 100% Combed Cotton (Single Jersey)',
@@ -293,7 +293,7 @@ const ProductDetails = ({ addToCart }) => {
               {/* Live Viewers */}
               <div className="live-viewers">
                 <span className="viewer-icon">👁</span>
-                <span className="viewer-count">{Math.floor(Math.random() * 13) + 9}</span>
+                <span className="viewer-count">{Math.floor(Math.random() * 5) + 1}</span>
                 <span className="viewer-text">People are viewing this right now</span>
               </div>
 
@@ -460,11 +460,6 @@ const ProductDetails = ({ addToCart }) => {
               </button>
             </div>
 
-            {/* Return Policy */}
-            <div className="return-policy">
-              <h3>Return Policy</h3>
-              <p>{product.returnPolicy}</p>
-            </div>
           </div>
         </div>
 
@@ -622,7 +617,6 @@ const ProductDetails = ({ addToCart }) => {
                   <ul>
                     <li>Free shipping on orders above ₹999</li>
                     <li>Standard delivery: 3-5 business days</li>
-                    <li>Express delivery: 1-2 business days (₹99 extra)</li>
                     <li>Cash on delivery available</li>
                     <li>Track your order with real-time updates</li>
                   </ul>

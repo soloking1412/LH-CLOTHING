@@ -11,7 +11,7 @@ const Products = () => {
       subtitle: 'THE CULTURE GLITCH',
       price: 749,
       originalPrice: 999,
-      image: '/images/products/K-1.jpg',
+    image: '/images/products/K-1.jpg',
       category: 'THE CULTURE GLITCH'
     },
     {
@@ -20,7 +20,7 @@ const Products = () => {
       subtitle: 'TRAVIS SCOTT',
       price: 749,
       originalPrice: 999,
-      image: '/images/products/T-1.jpg',
+    image: '/images/products/T-1.jpg',
       category: 'TRAVIS SCOTT COLLECTION'
     },
     {
@@ -29,7 +29,7 @@ const Products = () => {
       subtitle: 'THE WEEKND',
       price: 749,
       originalPrice: 999,
-      image: '/images/products/W-1.jpg',
+    image: '/images/products/W-1.jpg',
       category: 'THE WEEKND'
     },
   ];

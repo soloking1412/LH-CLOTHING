@@ -137,7 +137,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
         <button
           type="button"
-          className="google-login-btn"
+          className="google-signin-btn"
           onClick={handleGoogleLogin}
           disabled={loading}
         >

@@ -5,7 +5,58 @@ import { createOrder } from '../utils/orderUtils';
 import { FaShoppingCart, FaUser, FaMapMarkerAlt, FaCreditCard, FaLock } from 'react-icons/fa';
 import './Checkout.css';
 
+// Razorpay script loader
+const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    if (document.getElementById('razorpay-script')) {
+      resolve(true);
+      return;
+    }
+    const script = document.createElement('script');
+    script.id = 'razorpay-script';
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
 const Checkout = ({ cartItems, onOrderComplete, onClearCart }) => {
+  // Razorpay payment handler
+  const handleRazorpayPayment = async () => {
+    setLoading(true);
+    setError('');
+    const res = await loadRazorpayScript();
+    if (!res) {
+      setError('Failed to load Razorpay SDK. Please try again.');
+      setLoading(false);
+      return;
+    }
+    // Ideally, order details should come from backend for security
+    const options = {
+      key: 'rzp_test_YourKeyHere', // Replace with your Razorpay Key ID
+      amount: Math.round(getFinalTotal() * 100), // Amount in paise
+      currency: 'INR',
+      name: 'LH STYLEHUB',
+      description: 'Order Payment',
+      image: '/images/Logo/LH_Logo_White-01.png',
+      handler: function (response) {
+        // On successful payment
+        handleSubmit();
+      },
+      prefill: {
+        name: shippingInfo.firstName + ' ' + shippingInfo.lastName,
+        email: shippingInfo.email,
+        contact: shippingInfo.phone
+      },
+      theme: {
+        color: '#333'
+      }
+    };
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+    setLoading(false);
+  };
   const navigate = useNavigate();
   const { currentUser, userProfile, addOrder } = useAuth();
   const [shippingInfo, setShippingInfo] = useState({
@@ -299,13 +350,22 @@ const Checkout = ({ cartItems, onOrderComplete, onClearCart }) => {
                 </div>
               </div>
 
-              {/* Payment Section - Placeholder for Stripe */}
+              {/* Payment Section - Razorpay */}
               <div className="checkout-section">
                 <h2>Payment Information</h2>
                 <div className="payment-placeholder">
                   <FaCreditCard />
-                  <p>Stripe payment integration will be added here</p>
-                  <small>Payment processing will be implemented with Stripe API</small>
+                  <p>Pay securely with Razorpay</p>
+                  <button
+                    type="button"
+                    className="razorpay-btn"
+                    onClick={handleRazorpayPayment}
+                    disabled={loading}
+                    style={{marginTop: '1rem', padding: '0.7rem 1.5rem', background: '#f37254', color: '#fff', border: 'none', borderRadius: '6px', fontWeight: 'bold', cursor: 'pointer'}}
+                  >
+                    {loading ? 'Processing...' : 'Pay with Razorpay'}
+                  </button>
+                  <small style={{display:'block',marginTop:'0.5rem'}}>Test Key used. Replace with your live Razorpay Key ID for production.</small>
                 </div>
               </div>
 
@@ -332,21 +392,7 @@ const Checkout = ({ cartItems, onOrderComplete, onClearCart }) => {
                 </div>
               </div>
 
-              <button
-                type="submit"
-                className="place-order-btn"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <FaLock /> Processing...
-                  </>
-                ) : (
-                  <>
-                    <FaLock /> Place Order
-                  </>
-                )}
-              </button>
+              {/* Hide Place Order button, payment is handled by Razorpay */}
             </form>
           </div>
         </div>

@@ -4,6 +4,18 @@ import { FaBell, FaGift, FaFire, FaStar } from 'react-icons/fa';
 import './Polo.css';
 
 const Polo = () => {
+  const [showNotifyInput, setShowNotifyInput] = React.useState(false);
+  const [notifyValue, setNotifyValue] = React.useState("");
+
+  const handleNotifyClick = () => setShowNotifyInput(true);
+  const handleNotifyInputChange = (e) => setNotifyValue(e.target.value);
+  const handleNotifySubmit = (e) => {
+    e.preventDefault();
+    // You can add logic here to send notifyValue to backend or show a message
+    setShowNotifyInput(false);
+    setNotifyValue("");
+    alert("Thank you! You'll be notified.");
+  };
 
   return (
     <div className="polo-page">
@@ -30,11 +42,26 @@ const Polo = () => {
 
               {/* CTA Buttons */}
               <div className="hero-actions">
-                <button className="notify-btn">
+                <button className="notify-btn" onClick={handleNotifyClick}>
                   <FaBell />
                   <span>NOTIFY ME</span>
                 </button>
-                
+                {showNotifyInput && (
+                  <form className="notify-input-group" style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }} onSubmit={handleNotifySubmit}>
+                    <input
+                      type="text"
+                      className="notify-input"
+                      placeholder="Enter email or phone number"
+                      style={{ padding: '0.5rem 1rem', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1rem' }}
+                      value={notifyValue}
+                      onChange={handleNotifyInputChange}
+                      required
+                    />
+                    <button type="submit" className="notify-submit-btn" style={{ padding: '0.5rem 1.2rem', borderRadius: '8px', background: '#333', color: '#fff', border: 'none', fontWeight: '600', cursor: 'pointer' }}>
+                      Notify
+                    </button>
+                  </form>
+                )}
                 <Link to="/products" className="explore-btn">
                   <FaGift />
                   <span>EXPLORE T-SHIRTS</span>
